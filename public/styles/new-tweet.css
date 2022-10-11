@@ -11,10 +11,27 @@ form {
 
 button {
   background-color: #4056A1;
+  color: #FFF;
   font-family: bungee;
   font-size: 90%;
 }
 
 #counter {
   font-family: bungee;
+}
+
+#tweet-text {
+  width: 100%;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 5px solid #545149;
+  background: none;
+}
+#tweet-text::placeholder{
+color: #545149;
+font-weight: 600;
+font-size: 30px;
+}
+.new-tweet {
+margin: 20px 20%;
 }
