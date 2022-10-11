@@ -1,0 +1,35 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#logo {
+
+  font-family: Bungee, sans-serif;
+  padding-top: 1em;
+  font-size: 175%;
+}
+
+#newTweet {
+padding-top: 1.5em;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#newTweet p {
+  margin: 0;
+}
+
+#newTweet i {
+  color: red;
+}
