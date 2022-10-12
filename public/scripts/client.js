@@ -71,4 +71,24 @@ $(document).ready(function () {
   renderTweets(data);
 
 
+
+
+
+$('#tweetForm').on('submit', function (event) {
+  event.preventDefault();
+  
+  const data = $(this).serialize();
+  
+  $.ajax({
+    method: 'POST',
+    url: '/tweets',
+    data: data
+  })
+  .then((tweets) => {
+    console.log('dataToSendToServer: ', data)
+  })
+
+})
+
+
 });
