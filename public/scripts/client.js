@@ -3,37 +3,35 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
 
 
 $(document).ready(function () {
   console.log("document is ready");
 
 
+
+
+//Ajax request for fetching tweets for /tweets
+  const loadTweets = function () {
+    console.log("load tweets happening")
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+    })
+    .then(function(result){
+      renderTweets(result)
+    }) 
+
+  }
+
+loadTweets();
+
+
+
+
+
+// Calls the createTweetElement function on each tweet from
+// the database then appends them to the container on the twitter site
   const renderTweets = function (tweets) {
 
     for (const tweet of tweets) {
@@ -47,6 +45,8 @@ $(document).ready(function () {
 
 
 
+
+  //Creates a new tweet from tweet information
   const createTweetElement = function (tweetData) {
 
     const $tweet = $(`
@@ -60,7 +60,7 @@ $(document).ready(function () {
     <p>${tweetData.content.text}</p>
   </div>
   <footer>
-    <p>${tweetData.created_at}</p>
+    <p>${timeago.format(tweetData.created_at)}</p>
   </footer>
 </article>`);
 
@@ -68,27 +68,27 @@ $(document).ready(function () {
   };
 
 
-  renderTweets(data);
-
-
-
-
-
-$('#tweetForm').on('submit', function (event) {
-  event.preventDefault();
+ 
   
-  const data = $(this).serialize();
   
-  $.ajax({
-    method: 'POST',
-    url: '/tweets',
-    data: data
-  })
-  .then((tweets) => {
-    console.log('dataToSendToServer: ', data)
-  })
+  //Ajax request for posting tweets
+  $('#tweetForm').on('submit', function (event) {
+    event.preventDefault();
 
-})
+    const data = $(this).serialize();
+
+    $.ajax({
+      method: 'POST',
+      url: '/tweets',
+      data: data
+    })
+      .then((tweets) => {
+        console.log('dataToSendToServer: ', data);
+      });
+
+  });
+
+
 
 
 });
