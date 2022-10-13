@@ -12,7 +12,7 @@ $(document).ready(function() {
     //Turns counter red if character limit is exceeded
     if (counter.value <= -1) {
       $(counter).addClass('active')
-    } else if (counter.value <= 0) {
+    } else if (counter.value >= 0) {
       $(counter).removeClass('active')
     }
   })
