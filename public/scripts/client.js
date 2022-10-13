@@ -9,8 +9,58 @@
 
 $(document).ready(function () {
   console.log("document is ready");
+
   
   
+  //Escaping function for protection against XSS
+  const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+
+  };
+  
+  
+    //Creates a new tweet from tweet information
+    const createTweetElement = function (tweetData) {
+      const $tweet = $(`
+  <article class="tweet">
+    <header>
+      <span>
+      <img src =${tweetData.user.avatars}/>
+      <p>${tweetData.user.name}</p>
+      </span>
+      <p>${tweetData.user.handle}</p>
+    </header>
+    <div>
+      <p>${escape(tweetData.content.text)}</p>
+    </div>
+    <footer>
+      <p>${timeago.format(tweetData.created_at)}</p>
+    <span>
+    <i class="fa-solid fa-flag"></i>
+    <i class="fa-sharp fa-solid fa-retweet"></i>
+    <i class="fa-solid fa-heart"></i>
+    </span>
+    </footer>
+  </article>`);
+  
+      return $tweet;
+    };
+  
+  
+  // Calls the createTweetElement function on each tweet from
+  // the database then appends them to the container on the twitter site
+  const renderTweets = function (tweets) {
+      
+    for (const tweet of tweets) {
+console.log(tweet)
+      const newTweet = createTweetElement(tweet);
+
+      $('#tweets').prepend(newTweet);
+    }
+
+  };
 
   
   //Ajax request for fetching tweets for /tweets
@@ -33,49 +83,8 @@ $(document).ready(function () {
   
 
 
-  // Calls the createTweetElement function on each tweet from
-  // the database then appends them to the container on the twitter site
-  const renderTweets = function (tweets) {
-      
-    for (const tweet of tweets) {
-
-      const newTweet = createTweetElement(tweet);
-
-      $('#tweets').prepend(newTweet);
-    }
-
-  };
 
 
-
-
-  //Creates a new tweet from tweet information
-  const createTweetElement = function (tweetData) {
-
-    const $tweet = $(`
-<article class="tweet">
-  <header>
-    <span>
-    <img src =${tweetData.user.avatars}/>
-    <p>${tweetData.user.name}</p>
-    </span>
-    <p>${tweetData.user.handle}</p>
-  </header>
-  <div>
-    <p>${tweetData.content.text}</p>
-  </div>
-  <footer>
-    <p>${timeago.format(tweetData.created_at)}</p>
-  <span>
-  <i class="fa-solid fa-flag"></i>
-  <i class="fa-sharp fa-solid fa-retweet"></i>
-  <i class="fa-solid fa-heart"></i>
-  </span>
-  </footer>
-</article>`);
-
-    return $tweet;
-  };
 
 
 
