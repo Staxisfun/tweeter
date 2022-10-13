@@ -10,20 +10,20 @@
 $(document).ready(function () {
   console.log("document is ready");
 
-  
-  
+
+
   //Escaping function for protection against XSS
   const escape = function (str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
     return div.innerHTML;
 
   };
-  
-  
-    //Creates a new tweet from tweet information
-    const createTweetElement = function (tweetData) {
-      const $tweet = $(`
+
+
+  //Creates a new tweet from tweet information
+  const createTweetElement = function (tweetData) {
+    const $tweet = $(`
   <article class="tweet">
     <header>
       <span>
@@ -44,17 +44,17 @@ $(document).ready(function () {
     </span>
     </footer>
   </article>`);
-  
-      return $tweet;
-    };
-  
-  
+
+    return $tweet;
+  };
+
+
   // Calls the createTweetElement function on each tweet from
   // the database then appends them to the container on the twitter site
   const renderTweets = function (tweets) {
-      
+
     for (const tweet of tweets) {
-console.log(tweet)
+      console.log(tweet);
       const newTweet = createTweetElement(tweet);
 
       $('#tweets').prepend(newTweet);
@@ -62,7 +62,7 @@ console.log(tweet)
 
   };
 
-  
+
   //Ajax request for fetching tweets for /tweets
   const loadTweets = function () {
     console.log("load tweets happening");
@@ -71,21 +71,14 @@ console.log(tweet)
       url: '/tweets',
       method: 'GET',
     })
-    .then(function (result) {
-      renderTweets(result);
-    });
-    
+      .then(function (result) {
+        renderTweets(result);
+      });
+
   };
-  
-  
-  loadTweets()
-  
-  
 
 
-
-
-
+  loadTweets();
 
 
 
@@ -93,17 +86,21 @@ console.log(tweet)
   //Ajax request for posting tweets
   $('#tweetForm').on('submit', function (event) {
     event.preventDefault();
-    const tweetInput = $('#tweet-text').val()
-    const serializedInput = $('#tweet-text').serialize()
-   
-    //checks whether any characters were entered for the tweet
+    const tweetInput = $('#tweet-text').val();
+    const serializedInput = $('#tweet-text').serialize();
+    $('#error-container').hide()
+   //checks whether any characters were entered for the tweet
     if (tweetInput === "") {
-      return alert("No tweet message was submitted");
+      // return alert("No tweet message was submitted");
+      $('.error-message').html("No tweet message was submitted")
+      return $('#error-container').show()
     }
     //Checks whether the tweet character limit was exceeded
     if (tweetInput.length >= 140) {
-      return alert("Tweet exceeded character limit");
-    } 
+      // return alert("Tweet exceeded character limit");
+      $('.error-message').html("Tweet exceeded character limit")
+     return $('#error-container').show()
+    }
 
     $.ajax({
       method: 'POST',
@@ -111,19 +108,14 @@ console.log(tweet)
       data: serializedInput
     })
       .then((response) => {
-        console.log(response)
-        loadTweets()
+        console.log(response);
+        loadTweets();
       })
       .catch((error) => {
-        console.log(error)
-      })
-    
-    });
+        console.log(error);
+      });
 
-
-
-
-
+  });
 
 
 

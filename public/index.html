@@ -63,6 +63,11 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <div id="error-container">
+        <span id="error-symbol">&#9888;</span>
+        <span class="error-message"></span>
+        <span>&#9888;</span>
+      </div>
       <form id="tweetForm" method="POST" action="/tweets">
         <textarea name="text" placeholder="What are you humming about?" rows="2" id="tweet-text"></textarea>
         <div id="tweetButton">

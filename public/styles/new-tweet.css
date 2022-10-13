@@ -1,3 +1,8 @@
+
+
+
+
+
 form {
   display: flex;
   flex-direction: column;
@@ -32,11 +37,26 @@ button {
   background: none;
   font-size: 20px;
 }
-#tweet-text::placeholder{
-color: #545149;
-font-weight: 600;
-font-size: 20px;
+#tweet-text::placeholder {
+  color: #545149;
+  font-weight: 600;
+  font-size: 20px;
 }
 .new-tweet {
-margin: 20px 20%;
+  margin: 20px 20%;
+}
+
+
+#error-container {
+  display: none;
+ border: 5px solid red;
+ width: 100%;
+ margin-bottom: 40px;
+ color:red;
+ font-weight: bold;
+}
+
+#error-symbol {
+  
+  padding-left: 120px;
 }
