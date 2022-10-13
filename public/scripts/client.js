@@ -17,7 +17,7 @@ $(document).ready(function () {
   const loadTweets = function () {
     console.log("load tweets happening");
     $.ajax({
-      url: '/tweets',
+      url: '/tweets/',
       method: 'GET',
     })
       .then(function (result) {
@@ -35,12 +35,12 @@ $(document).ready(function () {
   // Calls the createTweetElement function on each tweet from
   // the database then appends them to the container on the twitter site
   const renderTweets = function (tweets) {
-
+      
     for (const tweet of tweets) {
 
       const newTweet = createTweetElement(tweet);
 
-      $('#tweets').append(newTweet);
+      $('#tweets').prepend(newTweet);
     }
 
   };
@@ -90,7 +90,7 @@ $(document).ready(function () {
 
     $.ajax({
       method: 'POST',
-      url: '/tweets',
+      url: '/tweets/',
       data: serializedInput
     })
       .then((response) => {
