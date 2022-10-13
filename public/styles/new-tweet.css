@@ -30,11 +30,12 @@ button {
   border: none;
   border-bottom: 5px solid #545149;
   background: none;
+  font-size: 20px;
 }
 #tweet-text::placeholder{
 color: #545149;
 font-weight: 600;
-font-size: 30px;
+font-size: 20px;
 }
 .new-tweet {
 margin: 20px 20%;

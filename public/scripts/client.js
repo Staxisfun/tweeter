@@ -9,27 +9,28 @@
 
 $(document).ready(function () {
   console.log("document is ready");
+  
+  
 
-
-
-
+  
   //Ajax request for fetching tweets for /tweets
   const loadTweets = function () {
     console.log("load tweets happening");
+    // $('.container').empty()
     $.ajax({
-      url: '/tweets/',
+      url: '/tweets',
       method: 'GET',
     })
-      .then(function (result) {
-        renderTweets(result);
-      });
-
+    .then(function (result) {
+      renderTweets(result);
+    });
+    
   };
-
-  loadTweets();
-
-
-
+  
+  
+  loadTweets()
+  
+  
 
 
   // Calls the createTweetElement function on each tweet from
@@ -54,8 +55,10 @@ $(document).ready(function () {
     const $tweet = $(`
 <article class="tweet">
   <header>
-    <p>${tweetData.user.avatars}</p>
+    <span>
+    <img src =${tweetData.user.avatars}/>
     <p>${tweetData.user.name}</p>
+    </span>
     <p>${tweetData.user.handle}</p>
   </header>
   <div>
@@ -63,6 +66,11 @@ $(document).ready(function () {
   </div>
   <footer>
     <p>${timeago.format(tweetData.created_at)}</p>
+  <span>
+  <i class="fa-solid fa-flag"></i>
+  <i class="fa-sharp fa-solid fa-retweet"></i>
+  <i class="fa-solid fa-heart"></i>
+  </span>
   </footer>
 </article>`);
 
@@ -90,12 +98,14 @@ $(document).ready(function () {
 
     $.ajax({
       method: 'POST',
-      url: '/tweets/',
+      url: '/tweets',
       data: serializedInput
     })
       .then((response) => {
         console.log(response)
-      }).catch((error) => {
+        loadTweets()
+      })
+      .catch((error) => {
         console.log(error)
       })
     
