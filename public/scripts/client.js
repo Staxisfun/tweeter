@@ -52,7 +52,7 @@ $(document).ready(function () {
   // Calls the createTweetElement function on each tweet from
   // the database then appends them to the container on the twitter site
   const renderTweets = function (tweets) {
-
+    $('#tweets').empty();
     for (const tweet of tweets) {
       console.log(tweet);
       const newTweet = createTweetElement(tweet);
