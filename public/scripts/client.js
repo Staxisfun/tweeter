@@ -72,6 +72,8 @@ $(document).ready(function () {
       method: 'GET',
     })
       .then(function (result) {
+        $('#tweet-text').val("")
+        $('#counter').val(140)
         renderTweets(result);
       });
 
@@ -110,6 +112,8 @@ $(document).ready(function () {
       .then((response) => {
         console.log(response);
         loadTweets();
+      
+        
       })
       .catch((error) => {
         console.log(error);
