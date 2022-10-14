@@ -4,9 +4,8 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Post tweets and admire them.
 
-
-
-
+!["screenshot of New Tweet"](https://github.com/Staxisfun/tweeter/blob/master/docs/Tweet-post.png?raw=true)
+!["screenshot of Tweets"](https://github.com/Staxisfun/tweeter/blob/master/docs/Tweets.png?raw=true)
 
 
 
