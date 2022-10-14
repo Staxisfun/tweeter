@@ -8,7 +8,7 @@
 
 
 $(document).ready(function () {
-  console.log("document is ready");
+ 
 
 
 
@@ -54,7 +54,6 @@ $(document).ready(function () {
   const renderTweets = function (tweets) {
     $('#tweets').empty();
     for (const tweet of tweets) {
-      console.log(tweet);
       const newTweet = createTweetElement(tweet);
 
       $('#tweets').prepend(newTweet);
@@ -65,7 +64,6 @@ $(document).ready(function () {
 
   //Ajax request for fetching tweets for /tweets
   const loadTweets = function () {
-    console.log("load tweets happening");
     // $('.container').empty()
     $.ajax({
       url: '/tweets',
