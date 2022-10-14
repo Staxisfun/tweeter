@@ -72,8 +72,8 @@ $(document).ready(function () {
       method: 'GET',
     })
       .then(function (result) {
-        $('#tweet-text').val("")
-        $('#counter').val(140)
+        $('#tweet-text').val("");
+        $('#counter').val(140);
         renderTweets(result);
       });
 
@@ -90,18 +90,18 @@ $(document).ready(function () {
     event.preventDefault();
     const tweetInput = $('#tweet-text').val();
     const serializedInput = $('#tweet-text').serialize();
-    $('#error-container').hide()
-   //checks whether any characters were entered for the tweet
+    $('#error-container').hide();
+    //checks whether any characters were entered for the tweet
     if (tweetInput === "") {
       // return alert("No tweet message was submitted");
-      $('.error-message').html("No tweet message was submitted")
-      return $('#error-container').show()
+      $('.error-message').html("No tweet message was submitted");
+      return $('#error-container').show();
     }
     //Checks whether the tweet character limit was exceeded
     if (tweetInput.length >= 140) {
       // return alert("Tweet exceeded character limit");
-      $('.error-message').html("Tweet exceeded character limit")
-     return $('#error-container').show()
+      $('.error-message').html("Tweet exceeded character limit");
+      return $('#error-container').show();
     }
 
     $.ajax({
@@ -112,8 +112,8 @@ $(document).ready(function () {
       .then((response) => {
         console.log(response);
         loadTweets();
-      
-        
+
+
       })
       .catch((error) => {
         console.log(error);

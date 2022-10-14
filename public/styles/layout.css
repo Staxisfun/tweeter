@@ -7,7 +7,10 @@ html {
   box-sizing: border-box;
 
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -26,7 +29,7 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- .container {
+.container {
   margin: 0 auto;
   width: 90%;
   background-color: #f4f1ec;
@@ -40,15 +43,15 @@ body {
 
 
 
-@media screen and (min-width: 1024px){
-  
-.pageLayout {
-  flex-direction: row
-}
+@media screen and (min-width: 1024px) {
 
-.container {
-  margin-top: 250px ;
-}
+  .pageLayout {
+    flex-direction: row
+  }
+
+  .container {
+    margin-top: 250px;
+  }
 
 
 }

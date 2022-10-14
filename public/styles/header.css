@@ -1,23 +1,23 @@
 header.mainHeader {
-height: 520px;
-width: 100%;
-display: flex;
-justify-content: end;
-flex-direction: column;
-align-items: center;
-background-color: #0e7783;
-background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+  height: 520px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0e7783;
+  background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
 }
 
 #matt {
-  color:white;
+  color: white;
   font-size: 30px;
 
 }
 
 
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
 
   header.mainHeader {
     justify-content: center;

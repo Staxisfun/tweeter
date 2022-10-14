@@ -51,39 +51,39 @@
       <button><i class="fa-sharp fa-solid fa-angles-down"></i></button>
     </div>
   </nav>
-<div class="pageLayout">
-  <header class="mainHeader">
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div>
-      <p id="matt"><strong>Matt</strong> Wilson</p>
-    </div>
-  </header>
-
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <section class="new-tweet">
-      <div id="error-container">
-        <span id="error-symbol">&#9888;</span>
-        <span class="error-message"></span>
-        <span>&#9888;</span>
+  <div class="pageLayout">
+    <header class="mainHeader">
+      <div>
+        <img src="/images/profile-hex.png">
       </div>
-      <form id="tweetForm" method="POST" action="/tweets">
-        <textarea name="text" placeholder="What are you humming about?" rows="2" id="tweet-text"></textarea>
-        <div id="tweetButton">
-          <button type="submit">Tweet</button>
-          <output id="counter" name="counter" class="counter" for="tweet-text">140</output>
+      <br>
+      <div>
+        <p id="matt"><strong>Matt</strong> Wilson</p>
+      </div>
+    </header>
+
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <section class="new-tweet">
+        <div id="error-container">
+          <span id="error-symbol">&#9888;</span>
+          <span class="error-message"></span>
+          <span>&#9888;</span>
         </div>
-      </form>
-    </section>
-    <section id="tweets">
+        <form id="tweetForm" method="POST" action="/tweets">
+          <textarea name="text" placeholder="What are you humming about?" rows="2" id="tweet-text"></textarea>
+          <div id="tweetButton">
+            <button type="submit">Tweet</button>
+            <output id="counter" name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <section id="tweets">
 
-    </section>
+      </section>
 
-  </main>
-</div>
+    </main>
+  </div>
 
   <script type="text/javascript" src="/scripts/client.js"></script>
 

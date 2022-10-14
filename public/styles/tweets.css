@@ -12,7 +12,7 @@ article:hover {
 
 article header {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   font-size: 20px;
   padding-left: 10px;
   padding-right: 10px;
@@ -34,7 +34,7 @@ article header span img {
 article div {
   border-bottom: 5px solid;
   font-size: 20px;
-  color: black; 
+  color: black;
   padding: 20px;
   margin: 10px;
 }
@@ -50,9 +50,9 @@ article footer {
 
 footer span i {
   padding: 15px 5px 0px 5px;
- 
+
 }
 
 footer span i:hover {
-  color:cyan;
+  color: cyan;
 }
