@@ -31,3 +31,28 @@ body {
   width: 90%;
   background-color: #f4f1ec;
 }
+
+
+.pageLayout {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 1024px){
+  
+.pageLayout {
+  flex-direction: row
+}
+
+.container {
+  margin-top: 250px ;
+}
+
+
+}

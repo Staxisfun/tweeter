@@ -6,6 +6,7 @@
 form {
   display: flex;
   flex-direction: column;
+  padding-bottom: 40px;
 }
 
 #tweetButton {
@@ -50,13 +51,14 @@ button {
 #error-container {
   display: none;
  border: 5px solid red;
+ height:40%;
  width: 100%;
  margin-bottom: 40px;
  color:red;
  font-weight: bold;
 }
 
-#error-symbol {
+ #error-symbol {
   
-  padding-left: 280px;
-}
+  padding-left: 50px;
+} 

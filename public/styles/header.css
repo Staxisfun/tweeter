@@ -12,3 +12,21 @@ background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.
 #matt {
   color:#1b1818;
 }
+
+
+
+@media screen and (min-width: 1024px){
+
+  header.mainHeader {
+    justify-content: center;
+    margin-top: 250px;
+    margin-left: 50px;
+    height: 75%;
+    width: 35%;
+  }
+
+  header.mainHeader img {
+    padding-top: 20px;
+  }
+
+}
