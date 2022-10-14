@@ -2,6 +2,7 @@ article {
 
   border: 5px solid;
   margin: 20px 20%;
+  margin-bottom: 50px;
 }
 
 article:hover {
@@ -53,5 +54,5 @@ footer span i {
 }
 
 footer span i:hover {
-  color:orange
+  color:cyan;
 }

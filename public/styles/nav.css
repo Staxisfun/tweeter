@@ -31,6 +31,10 @@ align-items: center;
   margin: 0;
 }
 
+#newTweet button{
+  margin-top: 4px;
+}
+
 #newTweet i {
   color: red;
 }
