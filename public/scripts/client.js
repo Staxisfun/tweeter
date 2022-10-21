@@ -8,7 +8,7 @@
 
 
 $(document).ready(function () {
- 
+
 
 
 
@@ -64,7 +64,6 @@ $(document).ready(function () {
 
   //Ajax request for fetching tweets for /tweets
   const loadTweets = function () {
-    // $('.container').empty()
     $.ajax({
       url: '/tweets',
       method: 'GET',
@@ -73,6 +72,10 @@ $(document).ready(function () {
         $('#tweet-text').val("");
         $('#counter').val(140);
         renderTweets(result);
+      })
+
+      .catch((error) => {
+        console.log(error);
       });
 
   };
@@ -91,13 +94,11 @@ $(document).ready(function () {
     $('#error-container').hide();
     //checks whether any characters were entered for the tweet
     if (tweetInput === "") {
-      // return alert("No tweet message was submitted");
       $('.error-message').html("No tweet message was submitted");
       return $('#error-container').show();
     }
     //Checks whether the tweet character limit was exceeded
-    if (tweetInput.length >= 140) {
-      // return alert("Tweet exceeded character limit");
+    if (tweetInput.length > 140) {
       $('.error-message').html("Tweet exceeded character limit");
       return $('#error-container').show();
     }
@@ -110,16 +111,11 @@ $(document).ready(function () {
       .then((response) => {
         console.log(response);
         loadTweets();
-
-
       })
       .catch((error) => {
         console.log(error);
       });
 
   });
-
-
-
 
 });

@@ -3,6 +3,8 @@ article {
   border: 5px solid;
   margin: 20px 20%;
   margin-bottom: 50px;
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 article:hover {
